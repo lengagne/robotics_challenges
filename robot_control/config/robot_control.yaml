@@ -1,0 +1,67 @@
+robot:
+    # Publish all joint states -----------------------------------
+  robot_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 10
+    
+  X_base_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: X_base_joint
+    pid: {p: 5.0, i: 0.2, d: 0.01}
+
+  Y_base_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: Y_base_joint
+    pid: {p: 5.0, i: 0.2, d: 0.01}
+    
+  base_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: base_joint
+    pid: {p: 5.0, i: 0.2, d: 0.01}
+
+  shoulder_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: shoulder_joint
+    pid: {p: 5.0, i: 0.2, d: 0.1}
+    
+  elbow_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: elbow_joint
+    pid: {p: 5.0, i: 0.2, d: 0.01}
+    
+  wrist_pitch_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wrist_pitch_joint
+    pid: {p: 5.0, i: 0.2, d: 0.01}
+    
+  wrist_roll_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: wrist_roll_joint
+    pid: {p: 5.0, i: 0.2, d: 0.01}
+   
+  gripper_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: gripper_joint
+    pid: {p: 200.0, i: 0.2, d: 0.2} 
+    
+  sub_gripper_joint_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: sub_gripper_joint
+    pid: {p: 200.0, i: 0.2, d: 0.2}    
+ 
+#joint_position_controller:
+  #type: position_controllers/JointTrajectoryController
+  #joints:
+    #- base_joint
+    #- shoulder_joint
+    #- elbow_joint
+    #- wrist_pitch_joint
+    #- wrist_roll_joint
+    #- gripper_joint
+  #constraints:
+    #goal_time: 0.6
+    #stopped_velocity_tolerance: 0.05
+    #gripper_finger_joint: {trajectory: 0.2, goal: 0.2}
+  #stop_trajectory_duration: 0.5
+  #state_publish_rate:  125
+  #action_monitor_rate: 10

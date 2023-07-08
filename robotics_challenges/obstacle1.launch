@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+
+    <param name="obstacle0" command="$(find xacro)/xacro '$(find limo_challenges)/urdf/obstacle.xacro' " />
+    <node name="urdf_spawner_obstacle0" pkg="gazebo_ros" type="spawn_model" args="-urdf -model obstacle0 -x 1.2 -y 1.2 -z 0.2 -param obstacle0"/>  
+    
+    <param name="obstacle1" command="$(find xacro)/xacro '$(find limo_challenges)/urdf/obstacle.xacro' " />
+    <node name="urdf_spawner_obstacle1" pkg="gazebo_ros" type="spawn_model" args="-urdf -model obstacle1 -x 3.0 -y 3.2 -z 0.2 -Y 0.5 -param obstacle1"/>      
+    
+    <param name="obstacle2" command="$(find xacro)/xacro '$(find limo_challenges)/urdf/obstacle.xacro' " />
+    <node name="urdf_spawner_obstacle2" pkg="gazebo_ros" type="spawn_model" args="-urdf -model obstacle2 -x 3.0 -y 5 -z 0.2 -Y 0.5 -param obstacle2"/>      
+
+    <param name="obstacle3" command="$(find xacro)/xacro '$(find limo_challenges)/urdf/obstacle.xacro' " />
+    <node name="urdf_spawner_obstacle3" pkg="gazebo_ros" type="spawn_model" args="-urdf -model obstacle3 -x 1.5 -y 8 -z 0.2 -Y 0.5 -param obstacle3"/>          
+    
+    <param name="obstacle4" command="$(find xacro)/xacro '$(find limo_challenges)/urdf/obstacle.xacro' " />
+    <node name="urdf_spawner_obstacle4" pkg="gazebo_ros" type="spawn_model" args="-urdf -model obstacle4 -x -1.5 -y 8 -z 0.2 -Y 0.5 -param obstacle4"/>  
+    
+    <param name="obstacle5" command="$(find xacro)/xacro '$(find limo_challenges)/urdf/obstacle.xacro' " />
+    <node name="urdf_spawner_obstacle5" pkg="gazebo_ros" type="spawn_model" args="-urdf -model obstacle5 -x -3.0 -y 5 -z 0.2 -Y 0.5 -param obstacle5"/>    
+    
+    <param name="obstacle6" command="$(find xacro)/xacro '$(find limo_challenges)/urdf/obstacle.xacro' " />
+    <node name="urdf_spawner_obstacle6" pkg="gazebo_ros" type="spawn_model" args="-urdf -model obstacle6 -x -3.0 -y 3.2 -z 0.2 -Y 0.5 -param obstacle6"/>   
+    
+    <param name="obstacle7" command="$(find xacro)/xacro '$(find limo_challenges)/urdf/obstacle.xacro' " />
+    <node name="urdf_spawner_obstacle7" pkg="gazebo_ros" type="spawn_model" args="-urdf -model obstacle7 -x -1.2 -y 1.2 -z 0.2 -param obstacle7"/>      
+</launch>

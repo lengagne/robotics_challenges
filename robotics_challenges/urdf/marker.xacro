@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+    
+    <xacro:arg name="marker" default="0" />
+    <xacro:property name="NumMarker" value="$(arg marker)" />
+    <xacro:property name="dim" value="0.3" />
+    <xacro:property name="m" value="100" />
+    
+<!--  <xacro:macro name="aruco_cube" params="marker dim m ">  -->
+<link name="marker${NumMarker}">
+   <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="${m}" />
+      <inertia  ixx="${m*m/12.0}" ixy="0.0"  ixz="0.0"  iyy="${m*m/12.0}"  iyz="0.0"  izz="${m*m/12.0}" />
+    </inertial>
+    <visual>
+        <origin xyz="0 0 ${0.25*dim}" />
+      <geometry>        
+        <mesh filename="package://limo_challenges/urdf/marker${NumMarker}/meshes/Marker${NumMarker}.dae" scale="${2.0*dim} ${2.0*dim} ${2.0*dim}"/>
+      </geometry>
+    </visual>
+
+    <collision>
+    <origin xyz="0 0 ${0.5*dim}" />
+      <geometry>
+        
+        <box size="${0.1*dim} ${dim} ${1.5*dim}" />
+      </geometry>
+    </collision>
+<!-- </xacro:macro>      -->
+</link>
+    <gazebo reference="marker">
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <minDepth>0.003</minDepth>  
+    <maxVel>0</maxVel>  
+    </gazebo>   
+</robot>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <arg name="aruco_number" default="1"/>
+    <arg name="offset_camera" default="true"/>
+    <arg name="robot_type" default="ackermann"/>
+    
+    <include file="$(find limo_challenges)/launch/limo_empty_world.launch">
+        <arg name="offset_camera" value="$(arg offset_camera)"/>
+        <arg name="robot_type" value="$(arg robot_type)"/>
+    </include>    
+       
+    <include file="$(find limo_challenges)/launch/markers$(arg aruco_number).launch"/>
+    
+</launch>
