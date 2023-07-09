@@ -21,6 +21,8 @@
  <param name="robot_description" command="$(find xacro)/xacro  '$(find robot_description)/urdf/robot.xacro'" />  
   
    <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model robot 
+        -J X_base_joint 0
+        -J Y_base_joint 0
         -J base_joint 1.57
         -J shoulder_joint 1.57
         -J elbow_joint 1.57
@@ -28,9 +30,6 @@
         -J wrist_roll_joint 1.57
         -J gripper_joint 0.05
          -J sub_gripper_joint 0.05" respawn="false"/>
-
-<!--         -J X_base_joint 0  -->
-<!--         -J Y_base_joint 0 -->
 
 
    

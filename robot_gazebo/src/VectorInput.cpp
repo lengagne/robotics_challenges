@@ -20,21 +20,25 @@
 #include "std_msgs/Float64.h"
 #include "std_msgs/Float64MultiArray.h"
 
-std_msgs::Float64 msg_base, msg_elbow, msg_gripper, msg_shoulder, msg_wrist_pitch, msg_wrist_roll;
+std_msgs::Float64 msg_X_base, msg_Y_base, msg_base, msg_elbow, msg_gripper, msg_shoulder, msg_wrist_pitch, msg_wrist_roll;
 
 void callback(const std_msgs::Float64MultiArray& msg)
 {
-    msg_base.data = msg.data[0];
-    msg_shoulder.data = msg.data[1];
-    msg_elbow.data = msg.data[2];
-    msg_wrist_pitch.data = msg.data[3];
-    msg_wrist_roll.data = msg.data[4];
-    msg_gripper.data = msg.data[5];
+    msg_X_base.data = msg.data[0];
+    msg_Y_base.data = msg.data[1];
+    msg_base.data = msg.data[2];
+    msg_shoulder.data = msg.data[3];
+    msg_elbow.data = msg.data[4];
+    msg_wrist_pitch.data = msg.data[5];
+    msg_wrist_roll.data = msg.data[6];
+    msg_gripper.data = msg.data[7];
 }
 
 
 int main(int argc, char *argv[])
 {
+    msg_X_base.data = 0; 
+    msg_Y_base.data = 0; 
     msg_base.data = 0; 
     msg_elbow.data = 0; 
     msg_gripper.data = 0.01; 
@@ -46,6 +50,8 @@ int main(int argc, char *argv[])
 
     ros::NodeHandle nh;
 
+    ros::Publisher pub_X_base = nh.advertise<std_msgs::Float64>("/robot/X_base_joint_position_controller/command", 1000);
+    ros::Publisher pub_Y_base = nh.advertise<std_msgs::Float64>("/robot/Y_base_joint_position_controller/command", 1000);
     ros::Publisher pub_base = nh.advertise<std_msgs::Float64>("/robot/base_joint_position_controller/command", 1000);
     ros::Publisher pub_elbow = nh.advertise<std_msgs::Float64>("/robot/elbow_joint_position_controller/command", 1000);
     ros::Publisher pub_gripper = nh.advertise<std_msgs::Float64>("/robot/gripper_joint_position_controller/command", 1000);
@@ -59,6 +65,8 @@ int main(int argc, char *argv[])
     ros::Rate rate(100.0);
     while (nh.ok())
     {   
+        pub_X_base.publish(msg_X_base);
+        pub_Y_base.publish(msg_Y_base);
         pub_base.publish(msg_base);
         pub_elbow.publish(msg_elbow);
         pub_gripper.publish(msg_gripper);

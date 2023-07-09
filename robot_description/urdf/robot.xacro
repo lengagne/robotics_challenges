@@ -23,29 +23,40 @@
   <link name="world"/>
 
   <joint name="fixed" type="fixed">
-        <origin xyz="0 0 0.01" rpy="0 0 0"/>
+        <origin xyz="0 0 0.0" rpy="0 0 0"/>
         <parent link="world"/>
         <child link="base_link"/>
   </joint>    
   
-<!--     <link name="X_base_link"/>   -->
-<!--     <link name="Y_base_link"/>   -->
-  
+    <link name="X_base_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <box_inertia m="0.01" x="0.02" y="0.02" z="0.05"/>
+        </inertial>               
+    </link>
+
+    <link name="Y_base_link">
+        <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="0.01"/>
+            <box_inertia m="0.01" x="0.02" y="0.02" z="0.05"/>
+        </inertial>               
+    </link>
+
     <link name="base_link">
-        <visual>
+<!--        <visual>
             <geometry>
                 <cylinder length="0.01" radius=".053" />
             </geometry>
             <material name="black" />
             <origin rpy="0 0 0" xyz="0 0 0" />
-        </visual>     
+        </visual>     -->
         <inertial>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <mass value="0.05"/>
             <box_inertia m="0.05" x="0.02" y="0.02" z="0.05"/>
-        </inertial>
-        
-        
+        </inertial>               
     </link>
 
     <link name="robot_base_link">
@@ -221,9 +232,9 @@
         </collision>
     </link>
 
-<!--    <joint name="X_base_joint" type="prismatic">
+    <joint name="X_base_joint" type="prismatic">
         <axis xyz="1 0 0" />
-        <limit effort="1000.0" lower="-5.0" upper="5.0" velocity="1.0" />
+        <limit effort="100.0" lower="-5.0" upper="5.0" velocity="1.0" />
         <origin rpy="0 0 0" xyz="0 0 0" />
         <parent link="base_link" />
         <child link="X_base_link" />
@@ -231,18 +242,17 @@
 
     <joint name="Y_base_joint" type="prismatic">
         <axis xyz="0 1 0" />
-        <limit effort="1000.0" lower="-5.0" upper="5.0" velocity="1.0" />
+        <limit effort="100.0" lower="-5.0" upper="5.0" velocity="1.0" />
         <origin rpy="0 0 0" xyz="0 0 0" />
         <parent link="X_base_link" />
         <child link="Y_base_link" />
-    </joint>-->
+    </joint>
 
     <joint name="base_joint" type="revolute">
         <axis xyz="0 0 1" />
         <limit effort="1000.0" lower="0.0" upper="3.1416" velocity="1.0" />
         <origin rpy="0 0 0" xyz="0 0 0" />
-        <!--<parent link="Y_base_link" />-->
-        <parent link="base_link" />
+        <parent link="Y_base_link" />
         <child link="robot_base_link" />
     </joint>
 

@@ -8,7 +8,7 @@
    </plugin>
  </gazebo>
  
-<!-- <transmission name="X_base_joint_transmission">
+ <transmission name="X_base_joint_transmission">
     <type>transmission_interface/SimpleTransmission</type>
     <joint name="X_base_joint">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -28,7 +28,7 @@
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
       <mechanicalReduction>1</mechanicalReduction>
     </actuator>
-</transmission>-->
+</transmission>
 
  <transmission name="base_joint_transmission">
     <type>transmission_interface/SimpleTransmission</type>

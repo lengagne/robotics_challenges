@@ -7,6 +7,8 @@
   <!-- load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
 	output="screen" ns="/robot" args="      
+                                            X_base_joint_position_controller 
+                                            Y_base_joint_position_controller
                                             base_joint_position_controller 
                                             shoulder_joint_position_controller 
                                             elbow_joint_position_controller 
@@ -16,8 +18,8 @@
                                             sub_gripper_joint_position_controller 
                                             robot_state_controller"/>
   
-<!--                                               X_base_joint_position_controller  -->
-<!--                                             Y_base_joint_position_controller  -->
+ 
+<!--                                               -->
   
 
   <node pkg="robot_state_publisher" type="robot_state_publisher" ns="/robot" name="tf_publisher" >

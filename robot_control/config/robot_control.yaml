@@ -7,12 +7,12 @@ robot:
   X_base_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: X_base_joint
-    pid: {p: 5.0, i: 0.2, d: 0.01}
+    pid: {p: 50.0, i: 0.2, d: 0.01}
 
   Y_base_joint_position_controller:
     type: effort_controllers/JointPositionController
     joint: Y_base_joint
-    pid: {p: 5.0, i: 0.2, d: 0.01}
+    pid: {p: 50.0, i: 0.2, d: 0.01}
     
   base_joint_position_controller:
     type: effort_controllers/JointPositionController
