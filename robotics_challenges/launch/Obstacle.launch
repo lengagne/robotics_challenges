@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+    <launch>
+    <arg name="obstacle" default="1"/>
+    <arg name="x" default="0.6"/>
+    <arg name="y" default="0.3"/>
+    <arg name="z" default="0.0"/>
+    
+    <param name="obstacle$(arg obstacle)" command="$(find xacro)/xacro '$(find robotics_challenges)/urdf/obstacle.xacro'  id:=$(arg obstacle)" />
+    <node name="urdf_spawner_obstacle$(arg obstacle)" pkg="gazebo_ros" type="spawn_model" args="-urdf -model obstacle$(arg obstacle) -x $(arg x) -y $(arg y) -z $(arg z) -param obstacle$(arg obstacle)"/>  
+    
+</launch>

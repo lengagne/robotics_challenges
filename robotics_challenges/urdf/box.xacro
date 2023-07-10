@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:arg name="id" default="1" />
+    <xacro:arg name="dim" default="0.05" />
+    <xacro:arg name="m" default="0.05" />
+    <xacro:arg name="l" default="0.1" />
+    <xacro:arg name="h" default="0.02" />
+    <xacro:arg name="width" default="0.002" />     
+    
+    <xacro:include filename="$(find robotics_challenges)/urdf/box_marker.xacro" />
+    <link name="my_box$(arg id)">
+        <basket id="$(arg id)" dim="$(arg dim)" m="$(arg m)" l="$(arg l)" h="$(arg h)" width="$(arg width)"/>
+    </link>
+    <gazebo reference="my_box$(arg id)">
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <minDepth>0.003</minDepth>  
+    <maxVel>0</maxVel>  
+    </gazebo>    
+</robot>

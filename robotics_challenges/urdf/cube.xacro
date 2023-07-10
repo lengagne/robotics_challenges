@@ -4,10 +4,10 @@
     <xacro:arg name="id" default="1" />
     
     <xacro:include filename="$(find robotics_challenges)/urdf/cube_marker.xacro" />
-    <link name="my_box">
+    <link name="my_cube$(arg id)">
         <aruco_cube id="$(arg id)" dim="0.05" m="0.05"/>
     </link>
-    <gazebo reference="my_box">
+    <gazebo reference="my_cube$(arg id)">
     <mu1>100.0</mu1>
     <mu2>100.0</mu2>
     <minDepth>0.003</minDepth>  

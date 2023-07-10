@@ -1,33 +1,20 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:arg name="id" default="1" />
+    <xacro:arg name="dim" default="0.05" />
+    <xacro:arg name="r" default="0.05" />
+    <xacro:arg name="h" default="0.1" />
+    <xacro:arg name="m" default="0.05" />
     
-    <xacro:property name="num_marker" value="0" />
-    <xacro:property name="dim" value="1.0" />
-    <xacro:property name="m" value="100" />
-    
-<!--  <xacro:macro name="aruco_cube" params="num_marker dim m ">  -->
-<link name="obstacle">
-   <inertial>
-      <origin xyz="0 0 0" />
-      <mass value="${m}" />
-      <inertia  ixx="${m*m/12.0}" ixy="0.0"  ixz="0.0"  iyy="${m*m/12.0}"  iyz="0.0"  izz="${m*m/12.0}" />
-    </inertial>
-    <visual>
-      <geometry>
-        <box size="${dim} ${dim*0.1} ${dim*0.15}" />
-      </geometry>
-    </visual>
-    <collision>
-      <geometry>
-        <box size="${dim} ${dim*0.1} ${dim*0.15}" />
-      </geometry>
-    </collision>
-<!-- </xacro:macro>      -->
-</link>
-    <gazebo reference="obstacle">
+    <xacro:include filename="$(find robotics_challenges)/urdf/obstacle_marker.xacro" />
+    <link name="my_obstacle$(arg id)">
+        <obstacle id="$(arg id)" dim="$(arg dim)" r="$(arg r)" h="$(arg h)" m="$(arg m)"/>
+    </link>
+    <gazebo reference="my_obstacle$(arg id)">
     <mu1>100.0</mu1>
     <mu2>100.0</mu2>
     <minDepth>0.003</minDepth>  
     <maxVel>0</maxVel>  
-    </gazebo>   
+    </gazebo>    
 </robot>

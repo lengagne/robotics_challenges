@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+   
+    <xacro:macro name="obstacle" params="id dim r h m"> 
+   <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="${m}" />
+      <inertia  ixx="${m*m/12.0}" ixy="0.0"  ixz="0.0"  iyy="${m*m/12.0}"  iyz="0.0"  izz="${m*m/12.0}" />
+    </inertial>
+    <visual>
+        <origin xyz="${-dim/2.0} 0 ${h}" rpy="0 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robotics_challenges/urdf/marker${id*10+8}/meshes/Marker${id*10+8}.dae" scale="${2.0*dim} ${2.0*dim} ${2.0*dim}"/>
+      </geometry>
+    </visual>              
+
+    <visual>
+      <origin xyz="0 0 ${h/2}" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="${h}" radius="${r}"/>
+      </geometry>
+    </visual>    
+      
+    <collision>
+      <origin xyz="0 0 ${h/2}" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="${h}" radius="${r}"/>
+      </geometry>
+    </collision>        
+    
+</xacro:macro>     
+</robot>

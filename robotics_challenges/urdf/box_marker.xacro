@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+   
+    <xacro:macro name="basket" params="id dim m l h width"> 
+   <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="${m}" />
+      <inertia  ixx="${m*m/12.0}" ixy="0.0"  ixz="0.0"  iyy="${m*m/12.0}"  iyz="0.0"  izz="${m*m/12.0}" />
+    </inertial>
+    <visual>
+        <origin xyz="${-dim/2.0} 0 ${width}" rpy="0 1.5708 0"/>
+      <geometry>
+        <mesh filename="package://robotics_challenges/urdf/marker${id*10+7}/meshes/Marker${id*10+7}.dae" scale="${2.0*dim} ${2.0*dim} ${2.0*dim}"/>
+      </geometry>
+    </visual>              
+
+    <visual>
+      <origin xyz="0 0 ${width/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${l} ${l} ${width}" />
+      </geometry>
+    </visual>    
+    
+    <visual>
+      <origin xyz="0 ${l/2} ${h/2.0}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${l} ${width} ${h}" />
+      </geometry>
+    </visual>    
+    <visual>
+      <origin xyz="0 ${-l/2} ${h/2.0}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${l} ${width} ${h}" />
+      </geometry>
+    </visual>        
+    <visual>
+      <origin xyz="${l/2} 0 ${h/2.0}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${width} ${l} ${h}" />
+      </geometry>
+    </visual>        
+    <visual>
+      <origin xyz="${-l/2} 0 ${h/2.0}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${width} ${l} ${h}" />
+      </geometry>
+    </visual>    
+      
+    <collision>
+      <origin xyz="${l/2} ${l/2} ${width/2}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${l} ${l} ${width}" />
+      </geometry>
+    </collision>        
+    <collision>
+      <origin xyz="0 ${l/2} ${h/2.0}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${l} ${width} ${h}" />
+      </geometry>
+    </collision>    
+    <collision>
+      <origin xyz="0 ${-l/2} ${h/2.0}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${l} ${width} ${h}" />
+      </geometry>
+    </collision>        
+    <collision>
+      <origin xyz="${l/2} 0 ${h/2.0}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${width} ${l} ${h}" />
+      </geometry>
+    </collision>        
+    <collision>
+      <origin xyz="${-l/2} 0 ${h/2.0}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${width} ${l} ${h}" />
+      </geometry>
+    </collision>
+    
+    
+</xacro:macro>     
+</robot>
