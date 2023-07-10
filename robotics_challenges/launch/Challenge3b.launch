@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+    <launch>
+  
+   
+    <include file="$(find robot_gazebo)/launch/robot_empty_world.launch" /> 
+  
+   <include file="$(find robotics_challenges)/launch/Cube.launch">
+        <arg name="cube" value="1"/>
+        <arg name="x" value="1.2"/>
+        <arg name="y" value="0.0"/>
+    </include>
+    
+   <include file="$(find robotics_challenges)/launch/Cube.launch">
+        <arg name="cube" value="2"/>
+        <arg name="x" value="0.3"/>
+        <arg name="y" value="1.54"/>
+    </include>
+
+   <include file="$(find robotics_challenges)/launch/Cube.launch">
+        <arg name="cube" value="3"/>
+        <arg name="x" value="-1.1"/>
+        <arg name="y" value="0.2"/>
+    </include>
+    
+   <include file="$(find robotics_challenges)/launch/Cube.launch">
+        <arg name="cube" value="4"/>
+        <arg name="x" value="-2.1"/>
+        <arg name="y" value="0.5"/>
+    </include>    
+    
+   <include file="$(find robotics_challenges)/launch/Cube.launch">
+        <arg name="cube" value="5"/>
+        <arg name="x" value="2.1"/>
+        <arg name="y" value="-3.5"/>
+    </include>        
+    
+   <include file="$(find robotics_challenges)/launch/Cube.launch">
+        <arg name="cube" value="6"/>
+        <arg name="x" value="1.5"/>
+        <arg name="y" value="-0.5"/>
+    </include>            
+    
+   <include file="$(find robotics_challenges)/launch/Cube.launch">
+        <arg name="cube" value="7"/>
+        <arg name="x" value="1.5"/>
+        <arg name="y" value="1.5"/>
+    </include>                
+    
+    
+    <include file="$(find robotics_challenges)/launch/Box.launch">
+        <arg name="box" value="0"/>
+        <arg name="x" value="-0.5"/>
+        <arg name="y" value="-0.2"/>
+        <arg name="size" value="0.2"/>
+        <arg name="height" value="0.1"/>
+    </include>    
+    
+            
+        
+</launch>

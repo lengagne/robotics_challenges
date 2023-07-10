@@ -47,7 +47,7 @@
     </visual>    
       
     <collision>
-      <origin xyz="${l/2} ${l/2} ${width/2}" rpy="0 0 0"/>
+      <origin xyz="0 0 ${width/2}" rpy="0 0 0"/>
       <geometry>
         <box size="${l} ${l} ${width}" />
       </geometry>
