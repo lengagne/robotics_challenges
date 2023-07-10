@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:arg name="id" default="1" />
+    
+    <xacro:include filename="$(find robotics_challenges)/urdf/cube_marker.xacro" />
+    <link name="my_box">
+        <aruco_cube id="$(arg id)" dim="0.05" m="0.05"/>
+    </link>
+    <gazebo reference="my_box">
+    <mu1>100.0</mu1>
+    <mu2>100.0</mu2>
+    <minDepth>0.003</minDepth>  
+    <maxVel>0</maxVel>  
+    </gazebo>    
+</robot>

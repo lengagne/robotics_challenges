@@ -33,10 +33,20 @@
 
 
    
-   <include file="$(find robot_control)/launch/robot_control.launch" /> 
+    <include file="$(find robot_control)/launch/robot_control.launch" /> 
   
   
-  <node name="VectorTranslator" pkg="robot_gazebo" type="robot_vector_input"/>  
+    <node name="VectorTranslator" pkg="robot_gazebo" type="robot_vector_input"/>  
+  
+    <node pkg="aruco_ros" type="marker_publisher" name="aruco_marker_publisher">
+        <remap from="/camera_info" to="/robot/camera/camera_info" />
+        <remap from="/image" to="/robot/camera/image_raw" />
+        <param name="camera_frame"       value="camera_link"/>   
+        <param name="reference_frame"    value="camera_link"/>          
+        <param name="image_is_rectified" value="True"/>
+        <param name="marker_size"        value="0.04"/>
+    </node>	
+    
 
 
 </launch>

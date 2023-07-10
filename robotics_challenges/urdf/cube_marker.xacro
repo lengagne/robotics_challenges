@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"> 
+ <xacro:macro name="aruco_cube" params="id dim m "> 
+   <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="${m}" />
+      <inertia  ixx="${m*m/12.0}" ixy="0.0"  ixz="0.0"  iyy="${m*m/12.0}"  iyz="0.0"  izz="${m*m/12.0}" />
+    </inertial>
+    <visual>
+      <origin xyz="${dim/2.0} 0 -${dim/2.0}"/>
+      <geometry>
+        <mesh filename="package://robotics_challenges/urdf/marker${id*10+1}/meshes/Marker${id*10+1}.dae" scale="${2.0*dim} ${2.0*dim} ${2.0*dim}"/>
+      </geometry>
+    </visual>
+   <visual>
+      <geometry>
+        <mesh filename="package://robotics_challenges/urdf/marker${id*10+2}/meshes/Marker${id*10+2}.dae" scale="${2.0*dim} ${2.0*dim} ${2.0*dim}"/>
+      </geometry>      
+        <origin xyz="0 ${dim/2.0} -${dim/2.0}"  rpy="0 0 1.57"/>
+    </visual>
+    <visual>
+      <geometry>
+        <mesh filename="package://robotics_challenges/urdf/marker${id*10+3}/meshes/Marker${id*10+3}.dae" scale="${2.0*dim} ${2.0*dim} ${2.0*dim}"/>
+      </geometry>      
+        <origin xyz="-${dim/2.0} 0 -${dim/2.0}"  rpy="0 0 3.14"/>
+    </visual>  
+   <visual>
+      <geometry>
+        <mesh filename="package://robotics_challenges/urdf/marker${id*10+4}/meshes/Marker${id*10+4}.dae" scale="${2.0*dim} ${2.0*dim} ${2.0*dim}"/>
+      </geometry>      
+        <origin xyz="0 -${dim/2.0} -${dim/2.0}"  rpy="0 0 -1.57"/>
+    </visual>   
+    <visual>
+      <geometry>
+        <mesh filename="package://robotics_challenges/urdf/marker${id*10+5}/meshes/Marker${id*10+5}.dae" scale="${2.0*dim} ${2.0*dim} ${2.0*dim}"/>
+      </geometry>      
+        <origin xyz="-${dim/2.0} 0 -${dim/2.0}"  rpy="0 1.57 0"/>
+    </visual>        
+    <visual>
+      <geometry>
+        <mesh filename="package://robotics_challenges/urdf/marker${id*10+6}/meshes/Marker${id*10+6}.dae" scale="${2.0*dim} ${2.0*dim} ${2.0*dim}"/>
+      </geometry>      
+        <origin xyz="${dim/2.0} 0 ${dim/2.0}"  rpy="0 -1.57 0"/>
+    </visual>           
+    <collision>
+      <geometry>
+        <box size="${dim} ${dim} ${dim}" />
+      </geometry>
+    </collision>
+</xacro:macro>     
+</robot>
